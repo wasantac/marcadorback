@@ -1,8 +1,4 @@
-const io = require('socket.io')(3001,{
-    cors: {
-        origin: "*"
-    }
-})
+const io = require('socket.io')(3001)
 
 io.on("connection",socket =>{
     socket.on("send-data",data => {
