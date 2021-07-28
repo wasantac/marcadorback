@@ -13,5 +13,9 @@ io.on("connection",socket =>{
         socket.broadcast.emit("send-colina",data);
         console.log(data)
     })
+    socket.on("send-ganador",data=>{
+        socket.broadcast.emit("ganador",data);
+        console.log(data)
+    })
     console.log("conected")
 })
