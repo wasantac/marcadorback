@@ -4,9 +4,13 @@ const io = require('socket.io')(process.env.PORT || 3001, {
     }
 })
 
-io.on("connection", socket => {
-    socket.on("send-data", data => {
-        socket.broadcast.emit("receive-data", data);
+io.on("connection",socket =>{
+    socket.on("open-points",data =>{
+        socket.broadcast.emit("send-animation",data)
+        console.log(data)
+    })
+    socket.on("send-data",data => {
+        socket.broadcast.emit("receive-data",data);
         console.log(data)
     })
     socket.on("rey-colina", data => {
